@@ -2,37 +2,319 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的个人博客</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #333;
-      max-width: 760px;
-      margin: 60px auto;
-      padding: 20px;
-      line-height: 1.8;
-    }
-    .card {
-      background: white;
-      padding: 35px;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px #0000000a;
-    }
-    h1 { color: #2563eb; }
-    a { color: #2563eb; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>精神状态良好（？）</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f7f3e8;
+  color: #171717;
+  font-family: "ZCOOL KuaiLe", "Microsoft YaHei", sans-serif;
+  overflow-x: hidden;
+}
+
+nav {
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #171717;
+}
+
+.logo {
+  font-size: 22px;
+  transform: rotate(-3deg);
+}
+
+nav a {
+  color: #171717;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.hero {
+  padding: 85px 8% 65px;
+  position: relative;
+}
+
+.tag {
+  display: inline-block;
+  background: #baff29;
+  border: 2px solid black;
+  padding: 8px 15px;
+  transform: rotate(-4deg);
+  box-shadow: 4px 4px black;
+}
+
+h1 {
+  font-size: clamp(48px, 9vw, 100px);
+  line-height: 1.12;
+  margin: 35px 0 20px;
+  letter-spacing: -4px;
+}
+
+h1 span {
+  color: #ff4d79;
+  text-shadow: 4px 4px #171717;
+}
+
+.intro {
+  font-size: 20px;
+  max-width: 520px;
+  line-height: 1.9;
+}
+
+.sticker {
+  position: absolute;
+  right: 12%;
+  top: 95px;
+  font-size: 120px;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn {
+  background: #ffdb35;
+  border: 3px solid black;
+  box-shadow: 5px 5px black;
+  padding: 13px 22px;
+  font-size: 18px;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: .15s;
+}
+
+.btn:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 1px 1px black;
+}
+
+.marquee {
+  background: #171717;
+  color: #baff29;
+  padding: 14px;
+  font-size: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.section {
+  padding: 55px 8%;
+}
+
+.section h2 {
+  font-size: 36px;
+  transform: rotate(-2deg);
+  display: inline-block;
+  background: #ff9ed2;
+  padding: 8px 18px;
+  border: 3px solid black;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  border: 3px solid black;
+  padding: 25px;
+  box-shadow: 7px 7px black;
+  min-height: 160px;
+}
+
+.card:nth-child(2) {
+  background: #baff29;
+  transform: rotate(2deg);
+}
+
+.card:nth-child(3) {
+  background: #ffb6a3;
+  transform: rotate(-1deg);
+}
+
+.card:nth-child(4) {
+  background: #b8c8ff;
+  transform: rotate(1deg);
+}
+
+.card h3 {
+  font-size: 24px;
+}
+
+.card p {
+  line-height: 1.8;
+}
+
+#joke {
+  font-size: 23px;
+  color: #ff4d79;
+  margin-top: 25px;
+  min-height: 45px;
+}
+
+footer {
+  text-align: center;
+  background: #171717;
+  color: white;
+  padding: 35px;
+  line-height: 2;
+}
+
+@media(max-width:650px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .sticker {
+    position: static;
+    font-size: 65px;
+    display: block;
+    margin-top: 20px;
+  }
+  nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  h1 {
+    letter-spacing: -2px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>你好，欢迎来到我的博客！</h1>
-    <p>这是我的第一个个人网站。</p>
-    <h2>关于我</h2>
-    <p>请看黄淮贝微微的成功逆袭之路。</p>
-    <h2>我的学习记录</h2>
-    <p>2026年11月12日：开始学习 GitHub，准备制作自己的博客。</p>
+
+<nav>
+  <div class="logo">🤡 不太正常工作室</div>
+  <div>
+    <a href="#about">关于我</a>
+    <a href="#blog">日记</a>
   </div>
+</nav>
+
+<section class="hero">
+  <div class="tag">⚠️ 一个不太正经的网站</div>
+
+  <h1>
+    欢迎来到<br>
+    我的<span>精神世界。</span>
+  </h1>
+
+  <p class="intro">
+    你好，陌生人。<br>
+    这里没有什么人生哲理，只有一个人类
+    在互联网留下的奇怪痕迹。<br>
+    请不要认真看待这里的一切。
+  </p>
+
+  <div class="sticker">🫠</div>
+
+  <button class="btn" onclick="randomJoke()">
+    点击看看我的精神状态 →
+  </button>
+
+  <div id="joke"></div>
+</section>
+
+<div class="marquee">
+  ★ 欢迎光临 ★ 生活不易，美女叹气 ★
+  今天也是努力不正常的一天 ★ 欢迎光临 ★
+</div>
+
+<section class="section" id="about">
+  <h2>🛸 关于这个人类</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>👽 我的身份</h3>
+      <p>
+        一名正在学习编程的地球居民。<br>
+        当前技能：复制、粘贴、Ctrl + Z。
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 我的脑子</h3>
+      <p>
+        处理器：未知。<br>
+        内存：时好时坏。<br>
+        系统状态：正在重启。
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🎮 我的爱好</h3>
+      <p>
+        学习新东西、探索互联网、研究奇怪的东西，
+        以及假装自己很忙，
+        last but not least:臭美。
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🚀 我的目标</h3>
+      <p>
+        学会编程，制作有趣的网站，
+        最终成为一个看起来很厉害的人。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="blog">
+  <h2>📡 人类观察日记</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>📅 2026.11.12</h3>
+      <p>今天成功弄了油管并创建了自己的第一个网站。人类文明又进步了一点。</p>
+    </div>
+
+    <div class="card">
+      <h3>💻 未完待续</h3>
+      <p>下一步准备学习更多编程知识，争取让电脑听我的话。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 不太正常工作室</p>
+  <p>Made with 🫠 and a little bit of madness.</p>
+  <p>本站作者精神状态随机刷新。</p>
+</footer>
+
+<script>
+const jokes = [
+  "系统提示：检测到帅哥，正在加载……加载失败。",
+  "你的智商余额不足，请及时充值。",
+  "今日目标：活着。完成情况：进行中。",
+  "恭喜你！你浪费了宝贵的 3 秒钟。",
+  "服务器正在思考人生，请稍后再试。",
+  "我不是懒，我只是在节能模式。",
+  "Error 404：脑子未找到。",
+  "今天也没有成为亿万富翁，真遗憾。"
+];
+
+function randomJoke() {
+  const joke = jokes[Math.floor(Math.random() * jokes.length)];
+  document.getElementById("joke").textContent = joke;
+}
+</script>
+
 </body>
 </html>
