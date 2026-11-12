@@ -1,311 +1,276 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>蔡叽的精神状态艺术馆.exe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ff4fa0">
+<title>CYBER HUMAN.EXE — 我的精神世界</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
-
-:root {
-  --pink:#ff477e;
-  --yellow:#ffe33d;
-  --green:#baff36;
-  --blue:#8c9dff;
-  --black:#171717;
-  --paper:#f7f2e5;
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=ZCOOL+KuaiLe&display=swap');
+:root{--pink:#ff4fa0;--hot:#ff2f86;--blue:#67e8ff;--purple:#a78bfa;--lime:#c8ff45;--silver:#dce5f4;--ink:#171326;--paper:#f7efff}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
- margin:0;background:var(--paper);color:var(--black);
- font-family:"ZCOOL KuaiLe","Microsoft YaHei",sans-serif;
- overflow-x:hidden;
-}
+body{margin:0;background:radial-gradient(circle at 15% 10%,#ffd5ec 0,transparent 25%),radial-gradient(circle at 85% 35%,#c9f5ff 0,transparent 28%),linear-gradient(135deg,#f9efff,#e8f7ff 55%,#fff0f7);color:var(--ink);font-family:"ZCOOL KuaiLe","Microsoft YaHei",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.28;background-image:radial-gradient(#8e79ba 1px,transparent 1px);background-size:19px 19px}
 a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer;color:inherit}
-nav{
- height:70px;padding:0 7%;display:flex;align-items:center;
- justify-content:space-between;border-bottom:3px solid;
- background:var(--paper);position:relative;z-index:5;
-}
-.logo{font-size:22px;transform:rotate(-3deg)}
-.navlinks{display:flex;gap:22px;font-size:16px}
-.navlinks a:hover{color:var(--pink)}
-.hero{
- padding:90px 9% 80px;position:relative;min-height:620px;
- overflow:hidden;
-}
-.tag{
- display:inline-block;background:var(--green);padding:10px 17px;
- border:3px solid;box-shadow:5px 5px var(--black);
- transform:rotate(-4deg);
-}
-h1{
- font-size:clamp(54px,9vw,108px);line-height:1.1;
- letter-spacing:-4px;margin:45px 0 25px;position:relative;z-index:2;
-}
-h1 span{
- color:var(--pink);
- text-shadow:5px 5px var(--black);
-}
-.intro{font-size:20px;line-height:1.9;max-width:650px}
-.sticker{
- position:absolute;right:12%;top:95px;font-size:125px;
- animation:spin 12s linear infinite;
-}
-.float{
- position:absolute;font-size:48px;
- animation:float 3s ease-in-out infinite alternate;
-}
-.f1{right:15%;top:350px}
-.f2{right:38%;top:75px;animation-delay:1s}
-.f3{right:8%;top:510px;animation-delay:.5s}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes float{to{transform:translateY(-25px) rotate(15deg)}}
-.btn{
- padding:16px 25px;background:var(--yellow);
- border:3px solid;box-shadow:6px 6px var(--black);
- font-size:18px;margin-top:22px;
- transition:.15s;
-}
-.btn:hover{transform:translate(5px,5px);box-shadow:1px 1px black}
-#joke{color:var(--pink);font-size:23px;margin-top:25px;min-height:38px}
-.marquee{
- background:var(--black);color:var(--green);padding:16px;
- font-size:22px;white-space:nowrap;overflow:hidden;
- border-block:3px solid var(--black);
-}
-.marquee span{display:inline-block;animation:scroll 22s linear infinite}
-@keyframes scroll{to{transform:translateX(-50%)}}
-.section{padding:65px 8%}
-.heading{
- display:inline-block;font-size:35px;padding:10px 20px;
- background:var(--pink);border:3px solid;
- box-shadow:5px 5px black;transform:rotate(-2deg);
- margin-bottom:35px;
-}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
-.card{
- border:3px solid black;padding:27px;background:white;
- box-shadow:7px 7px black;position:relative;
- transition:.2s;
-}
-.card:hover{transform:rotate(2deg) scale(1.025)}
-.card:nth-child(2){background:var(--green);transform:rotate(2deg)}
-.card:nth-child(3){background:#ffb69e;transform:rotate(-2deg)}
-.card:nth-child(4){background:var(--blue);transform:rotate(1deg)}
-.card h3{font-size:26px;margin-top:5px}
-.card p{font-size:17px;line-height:1.8}
-.bigemoji{font-size:45px}
-.stats{
- display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
- margin-top:30px;
-}
-.stat{
- padding:23px;background:var(--yellow);border:3px solid;
- box-shadow:5px 5px black;text-align:center;
-}
-.stat:nth-child(2){background:var(--pink);transform:rotate(2deg)}
-.stat:nth-child(3){background:var(--green);transform:rotate(-2deg)}
-.stat strong{display:block;font-size:35px;margin:10px}
-.terminal{
- background:#171717;color:#baff36;padding:25px;
- border:3px solid black;box-shadow:8px 8px #ff477e;
- font-family:monospace;font-size:15px;line-height:2;
- overflow-wrap:anywhere;
-}
-.terminal .red{color:#ff477e}
-.terminal .white{color:white}
-.diary{
- background:#fff;border:3px solid black;
- padding:22px;margin-bottom:18px;
- box-shadow:5px 5px black;
-}
-.diary small{color:var(--pink);font-size:15px}
-.diary p{font-size:18px;line-height:1.7}
-footer{
- background:var(--black);color:white;padding:45px 8%;
- text-align:center;line-height:2;
-}
-footer strong{color:var(--green);font-size:25px}
-#popup{
- position:fixed;right:20px;bottom:20px;z-index:10;
- background:var(--yellow);border:3px solid black;
- padding:17px;box-shadow:5px 5px black;
- max-width:260px;display:none;animation:pop .3s;
-}
-@keyframes pop{from{transform:scale(.5)}to{transform:scale(1)}}
-#popup button{float:right;background:none;border:0;font-size:20px}
-@media(max-width:650px){
- .hero{padding:65px 7%;min-height:600px}
- .sticker{font-size:70px;right:8%;top:100px}
- .f1{right:8%;top:420px}
- .f2{right:30%;top:30px}
- h1{letter-spacing:-2px}
- .grid{grid-template-columns:1fr}
- .stats{grid-template-columns:1fr}
- .navlinks{gap:10px;font-size:14px}
- .logo{font-size:17px}
-}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.topline{height:9px;background:repeating-linear-gradient(90deg,var(--pink) 0 30px,var(--blue) 30px 60px,var(--lime) 60px 90px,var(--purple) 90px 120px)}
+nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:14px 5%;background:#ffffffd9;backdrop-filter:blur(14px);border-bottom:2px solid #171326;box-shadow:0 5px 0 #ff4fa055}
+.brand{font-family:Orbitron,sans-serif;font-size:clamp(13px,2vw,20px);font-weight:900;color:var(--hot);text-shadow:2px 2px #b9f6ff}
+.navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:15px}.navlinks a:hover{color:var(--hot);text-decoration:underline}
+.pill{border:2px solid var(--ink);background:var(--lime);padding:6px 11px;box-shadow:3px 3px var(--ink);font-size:12px;white-space:nowrap}
+.wrap{width:min(1120px,90%);margin:auto}
+.hero{padding:65px 0 55px;position:relative;min-height:650px}
+.kicker{display:inline-block;background:var(--lime);border:2px solid var(--ink);padding:9px 15px;box-shadow:5px 5px var(--ink);transform:rotate(-3deg)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:38px;margin-top:30px}
+h1{font-size:clamp(48px,8vw,92px);line-height:1.02;margin:10px 0 20px;letter-spacing:-3px;text-shadow:4px 4px #fff,7px 7px var(--pink)}
+h1 em{font-style:normal;color:var(--hot);text-shadow:3px 3px #fff,6px 6px var(--blue)}
+.lead{font-size:20px;line-height:1.85;max-width:590px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:24px}
+.btn{border:2px solid var(--ink);background:var(--pink);color:#fff;padding:13px 18px;box-shadow:5px 5px var(--ink);transition:.15s}
+.btn.alt{background:var(--blue);color:var(--ink)}
+.btn:hover{transform:translate(4px,4px);box-shadow:1px 1px var(--ink)}
+.photo-frame{position:relative;width:min(100%,350px);justify-self:center;padding:12px 12px 43px;background:linear-gradient(145deg,#fff,#d9e7f7 55%,#fff);border:3px solid var(--ink);box-shadow:12px 12px 0 var(--pink),18px 18px 0 var(--ink);transform:rotate(4deg)}
+.photo-frame:before{content:"★ MY REAL HUMAN FORM ★";position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:Orbitron,sans-serif;font-size:12px;letter-spacing:1px}
+.photo-frame img{display:block;width:100%;height:390px;object-fit:cover;object-position:center 38%;border:2px solid var(--ink)}
+.sticker{position:absolute;font-size:48px;filter:drop-shadow(3px 3px #fff);animation:bob 2.5s ease-in-out infinite alternate}
+.s1{right:2%;top:40px}.s2{left:46%;top:440px;animation-delay:.5s}.s3{right:3%;bottom:40px;animation-delay:1s}
+@keyframes bob{to{transform:translateY(-18px) rotate(14deg)}}
+.ticker{background:var(--ink);color:var(--lime);border-block:3px solid var(--ink);padding:12px 0;overflow:hidden;white-space:nowrap;font-family:Orbitron,sans-serif;font-size:14px}
+.ticker span{display:inline-block;animation:marquee 24s linear infinite}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.section{padding:66px 0}
+.section-title{display:inline-block;font-size:clamp(27px,4vw,39px);padding:10px 18px;background:var(--blue);border:3px solid var(--ink);box-shadow:6px 6px var(--ink);transform:rotate(-2deg);margin:0 0 30px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:#fff;border:2px solid var(--ink);padding:23px;box-shadow:7px 7px var(--ink);position:relative;overflow:hidden}
+.card:nth-child(2){background:#d9ff83;transform:rotate(1deg)}
+.card:nth-child(3){background:#ffd1e5;transform:rotate(-1deg)}
+.card:nth-child(4){background:#d8d4ff;transform:rotate(1deg)}
+.card .emoji{font-size:38px}.card h3{font-size:25px;margin:8px 0}.card p{line-height:1.8;margin-bottom:0}
+.status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+.stat{background:var(--lime);border:2px solid var(--ink);padding:18px;text-align:center;box-shadow:5px 5px var(--ink)}
+.stat:nth-child(2){background:#ffc3e0;transform:rotate(1deg)}.stat:nth-child(3){background:#bcefff;transform:rotate(-1deg)}
+.stat strong{display:block;font:900 26px Orbitron,sans-serif;margin:9px 0}
+.terminal{background:#171326;color:#c8ff45;border:3px solid var(--ink);padding:20px;box-shadow:8px 8px var(--pink);font:14px/2 monospace;overflow-wrap:anywhere}
+.terminal .pink{color:#ff6eae}.terminal .blue{color:#67e8ff}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.gallery-card{background:#fff;padding:12px 12px 45px;border:2px solid var(--ink);box-shadow:8px 8px var(--ink);transform:rotate(-3deg);position:relative}
+.gallery-card:nth-child(2){transform:rotate(3deg);background:#f1eaff}
+.gallery-card img{width:100%;height:330px;object-fit:cover;display:block;border:1px solid #aaa}
+.gallery-card p{position:absolute;bottom:7px;left:10px;right:10px;text-align:center;margin:0;font-size:18px}
+.player{display:grid;grid-template-columns:170px 1fr;gap:22px;align-items:center;background:linear-gradient(135deg,#e9faff,#ffd9ed);padding:22px;border:3px solid var(--ink);box-shadow:8px 8px var(--ink)}
+.album{width:100%;aspect-ratio:1;object-fit:cover;border:3px solid #fff;box-shadow:4px 4px var(--ink)}
+.player h3{margin:0 0 6px;font-size:25px}.player small{font-family:Orbitron,sans-serif;font-size:10px;letter-spacing:1px}
+.wave{height:35px;display:flex;align-items:center;gap:4px;margin:14px 0}
+.wave i{display:block;width:5px;border-radius:4px;background:var(--hot);height:10px;animation:wave .8s ease-in-out infinite alternate}
+.wave i:nth-child(3n){animation-delay:.2s}.wave i:nth-child(2n){animation-delay:.4s}
+@keyframes wave{to{height:32px}}
+.player-controls{display:flex;gap:10px;flex-wrap:wrap}
+.video-wrap{margin-top:18px;aspect-ratio:16/9;background:#171326;border:2px solid var(--ink);overflow:hidden}
+.video-wrap iframe{width:100%;height:100%;border:0}
+.gamebox{background:#171326;color:#fff;padding:22px;border:3px solid var(--ink);box-shadow:8px 8px var(--blue)}
+.gamebox canvas{width:100%;max-width:560px;height:220px;background:linear-gradient(#15152a,#34305a);display:block;border:2px solid var(--blue);margin:12px auto}
+.game-actions{text-align:center}
+.score{color:var(--lime);font-family:Orbitron,sans-serif}
+.commentbox{background:#fff;border:2px solid var(--ink);padding:22px;box-shadow:7px 7px var(--ink)}
+.commentbox input,.commentbox textarea{width:100%;border:2px solid #aaa;padding:12px;margin:7px 0 12px;background:#fbfaff}
+.comment{border-top:1px dashed #aaa;padding:12px 0}.comment b{color:var(--hot)}
+.hint{font-size:13px;color:#5b5369;line-height:1.7}
+footer{background:var(--ink);color:#fff;text-align:center;padding:42px 5%;margin-top:30px;line-height:2}
+footer strong{font:900 20px Orbitron,sans-serif;color:var(--pink)}
+#ghost{position:fixed;z-index:99;pointer-events:none;font-size:34px;left:0;top:0;transform:translate(-50%,-50%);filter:drop-shadow(2px 3px #ff4fa0);transition:transform .08s}
+#popup{position:fixed;z-index:90;right:18px;bottom:18px;width:min(290px,85vw);background:var(--lime);border:3px solid var(--ink);padding:17px;box-shadow:7px 7px var(--pink);display:none}
+#popup button{float:right;border:0;background:transparent;font-size:20px}
+.spark{position:fixed;pointer-events:none;z-index:100;animation:spark .7s ease-out forwards;font-size:22px}
+@keyframes spark{to{transform:translate(var(--dx),-65px) rotate(160deg) scale(.2);opacity:0}}
+@media(max-width:760px){nav{align-items:flex-start;flex-direction:column}.hero-grid,.gallery{grid-template-columns:1fr}.hero{padding-top:45px}.photo-frame{width:min(78%,310px);margin:20px auto 35px}.photo-frame img{height:350px}.s2{left:auto;right:10%;top:560px}.grid{grid-template-columns:1fr}.status-grid{grid-template-columns:1fr}.player{grid-template-columns:110px 1fr;gap:15px}.gallery-card img{height:290px}.lead{font-size:17px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-
+<div class="topline"></div>
 <nav>
- <div class="logo">🤡 精神状态艺术馆</div>
- <div class="navlinks">
-  <a href="#about">关于我</a>
-  <a href="#status">状态</a>
-  <a href="#diary">日记</a>
- </div>
+  <div class="brand">✦ CYBER HUMAN.EXE ✦</div>
+  <div class="navlinks"><a href="#about">ABOUT</a><a href="#gallery">PHOTO</a><a href="#music">MUSIC</a><a href="#game">GAME</a><a href="#guestbook">GUESTBOOK</a></div>
+  <div class="pill">● SYSTEM ONLINE</div>
 </nav>
 
-<section class="hero">
- <div class="tag">⚠️ 警告：本网站不太正常</div>
- <div class="sticker">🫠</div>
- <div class="float f1">💿</div>
- <div class="float f2">⭐</div>
- <div class="float f3">👾</div>
+<header class="hero wrap">
+  <div class="kicker">⚠ WARNING: THIS HUMAN IS A LITTLE CHAOTIC</div>
+  <div class="hero-grid">
+    <div>
+      <h1>WELCOME TO<br>MY <em>CHAOTIC</em><br>WORLD!</h1>
+      <p class="lead">你好，陌生人。这里是一个地球人偷偷搭建的互联网小宇宙。<br>不保证正常运行，但保证努力发光。👽</p>
+      <div class="hero-actions">
+        <a class="btn" href="#about">ENTER MY WORLD ↘</a>
+        <button class="btn alt" onclick="randomLine()">点我接收宇宙电波 ✦</button>
+      </div>
+      <p id="random-line" style="color:#ff2f86;font-size:19px;min-height:28px">SYSTEM MESSAGE: 脑细胞正在加载……</p>
+    </div>
+    <div class="photo-frame">
+      <img src="profile.jpg" alt="我的自拍照片">
+    </div>
+  </div>
+  <div class="sticker s1">💿</div><div class="sticker s2">🛸</div><div class="sticker s3">💖</div>
+</header>
 
- <h1>
-  欢迎来到<br>
-  我的<span>精神世界。</span>
- </h1>
- <p class="intro">
-  你好，陌生人。<br>
-  这里没有人生导师，没有成功学。<br>
-  只有一个美丽的人类在互联网留下的奇怪痕迹。<br>
-  <b>请系好安全带，脑子寄存处在左边。</b>
- </p>
- <button class="btn" onclick="randomJoke()">🎲 点击检测我的精神状态 →</button>
- <div id="joke">Error 404：脑子未找到。</div>
-</section>
+<div class="ticker"><span>★ FAST INTERNET SURFING ★ 欢迎来到我的精神世界 ★ LOADING MY LIFE... ★ DON'T TAKE THIS WEBSITE TOO SERIOUSLY ★ FAST INTERNET SURFING ★ 欢迎来到我的精神世界 ★ LOADING MY LIFE... ★ DON'T TAKE THIS WEBSITE TOO SERIOUSLY ★ </span></div>
 
-<div class="marquee">
- <span>★ 欢迎来到精神世界 ★ 今天也要好好发疯 ★
-  生活不易，蔡叽叹气 ★ 不要内耗，直接外耗 ★
-  欢迎来到精神世界 ★ 今天也要好好发疯 ★
-  生活不易，蔡叽叹气 ★ 不要内耗，直接外耗 ★</span>
-</div>
-
+<main class="wrap">
 <section class="section" id="about">
- <div class="heading">👽 关于这个人类</div>
- <div class="grid">
-  <div class="card">
-   <div class="bigemoji">🧑‍🚀</div>
-   <h3>我的身份</h3>
-   <p>一名正在学习编程的地球居民。<br>当前职业：杀手（骗你的）。</p>
+  <h2 class="section-title">👽 ABOUT THIS HUMAN</h2>
+  <div class="grid">
+    <article class="card"><div class="emoji">🧑‍🚀</div><h3>我的身份</h3><p>一名正在学习编程的地球居民。当前职业：互联网冲浪选手，兼职研究如何让电脑听我的话。</p></article>
+    <article class="card"><div class="emoji">🧠</div><h3>我的脑子</h3><p>处理器：未知型号。内存：时好时坏。系统：Windows 情绪版。偶尔自动重启。</p></article>
+    <article class="card"><div class="emoji">🎮</div><h3>我的爱好</h3><p>探索互联网、听歌、研究奇怪的玩意，以及在现实世界和赛博世界之间反复横跳。</p></article>
+    <article class="card"><div class="emoji">🚀</div><h3>人生目标</h3><p>学会编程，做出酷炫的网站，留下有趣的痕迹。顺便把精神状态维持在可启动范围。</p></article>
   </div>
-  <div class="card">
-   <div class="bigemoji">🧠</div>
-   <h3>我的脑子</h3>
-   <p>处理器：未知型号。<br>内存：时好时坏。<br>系统：Windows 情绪版。</p>
-  </div>
-  <div class="card">
-   <div class="bigemoji">🎮</div>
-   <h3>我的爱好</h3>
-   <p>探索互联网、学习新东西、研究奇怪的玩意，以及假装自己很忙，last but not least:臭美</p>
-  </div>
-  <div class="card">
-   <div class="bigemoji">🚀</div>
-   <h3>我的人生目标</h3>
-   <p>学会编程，做出酷炫的网站，然后成为一个看起来很厉害的人，从此走向人生巅峰。</p>
-  </div>
- </div>
 </section>
 
 <section class="section" id="status">
- <div class="heading">📊 实时精神状态报告</div>
- <div class="stats">
-  <div class="stat">精神状态<strong>未知</strong>正常运行中？</div>
-  <div class="stat">摸鱼指数<strong>99%</strong>非常稳定</div>
-  <div class="stat">智商余额<strong>0.5</strong>请及时充值</div>
- </div>
- <br><br>
- <div class="terminal">
-  <div class="red">SYSTEM WARNING: HUMAN.EXE</div>
-  <div class="white">正在检测宿主机状态...</div>
-  > 脑子连接状态：<span class="red">NOT FOUND</span><br>
-  > 梦想加载进度：<span class="white">1%</span><br>
-  > 摸鱼服务：<span class="white">RUNNING</span><br>
-  > 人生进程：<span class="red">UNKNOWN ERROR</span><br>
-  > 建议：先喝杯奶茶再说。<br>
-  <span class="white">_ 正在等待下一次奇迹...</span>
- </div>
+  <h2 class="section-title">📡 LIVE MENTAL STATUS</h2>
+  <div class="status-grid">
+    <div class="stat">精神状态<strong>UNKNOWN</strong>运行中？</div>
+    <div class="stat">冲浪速度<strong id="speed">9999</strong>MB / SEC</div>
+    <div class="stat">脑细胞余额<strong id="brain">0.5</strong>个</div>
+  </div>
+  <div class="terminal">
+    <span class="pink">SYSTEM CHECK // HUMAN.EXE</span><br>
+    &gt; connecting to internet universe... <span class="blue">CONNECTED</span><br>
+    &gt; brain.exe status: <span class="pink">NOT FOUND</span><br>
+    &gt; music player: <span class="blue">READY</span><br>
+    &gt; life progress: <span class="pink">BUFFERING...</span><br>
+    &gt; recommendation: drink water, touch grass, then return to the internet.
+  </div>
 </section>
 
-<section class="section" id="diary">
- <div class="heading">📡 人类观察日记</div>
- <div class="diary">
-  <small>2026.11.12 // 第一次上线</small>
-  <p>今天成功弄了油管并且制作了自己的第一个网站。人类文明又进步了一点，虽然只有一点点。</p>
- </div>
- <div class="diary">
-  <small>COMING SOON // 未知日期</small>
-  <p>下一步：学习更多编程知识。争取让电脑听我的话，而不是我听电脑的话。</p>
- </div>
- <button class="btn" onclick="newDiary()">📝 随机生成一条日记</button>
- <div id="newdiary"></div>
+<section class="section" id="gallery">
+  <h2 class="section-title">📸 MY MULTIVERSE PHOTO WALL</h2>
+  <div class="gallery">
+    <div class="gallery-card"><img src="profile.jpg" alt="我的自拍"><p>✦ THE HUMAN BEHIND THE SCREEN ✦</p></div>
+    <div class="gallery-card"><img src="hanfu.jpg" alt="我的古风造型照片"><p>✦ ANOTHER UNIVERSE / 古风副本 ✦</p></div>
+  </div>
 </section>
+
+<section class="section" id="music">
+  <h2 class="section-title">💿 MY CYBER MP3 PLAYER</h2>
+  <div class="player">
+    <img class="album" src="https://img.youtube.com/vi/jeqdYqsrsA0/hqdefault.jpg" alt="IU Good Day MV thumbnail">
+    <div>
+      <small>NOW LOADING YOUR FAVORITE TRACK</small>
+      <h3>좋은 날 (Good Day)</h3>
+      <div>IU · 2010 · REAL</div>
+      <div class="wave" aria-label="音乐波形"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="player-controls">
+        <a class="btn" href="https://www.youtube.com/watch?v=jeqdYqsrsA0" target="_blank" rel="noopener">▶ 在 YouTube 播放</a>
+        <a class="btn alt" href="https://music.apple.com/us/song/409076748" target="_blank" rel="noopener">♫ Apple Music</a>
+      </div>
+    </div>
+  </div>
+  <div class="video-wrap">
+    <iframe src="https://www.youtube-nocookie.com/embed/jeqdYqsrsA0?rel=0" title="IU - Good Day official music video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <p class="hint">音乐由 YouTube 官方视频播放器提供。请点击播放；网页不会擅自自动播放。若视频因地区或嵌入限制无法播放，可使用上方 YouTube / Apple Music 入口。</p>
+</section>
+
+<section class="section" id="game">
+  <h2 class="section-title">🎮 SAVE YOUR BRAIN CELLS</h2>
+  <div class="gamebox">
+    <p>小游戏：点击下方按钮收集脑细胞，躲避无意义信息。看看你能攒多少脑子！</p>
+    <canvas id="gamecanvas" width="560" height="220"></canvas>
+    <div class="game-actions">
+      <div class="score">BRAIN CELLS: <span id="score">0</span></div>
+      <button class="btn" id="collect">🧠 收集脑细胞 +1</button>
+      <button class="btn alt" id="reset">重新开始</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="guestbook">
+  <h2 class="section-title">📮 INTERNET GUESTBOOK</h2>
+  <div class="commentbox">
+    <h3>留下你的互联网足迹！</h3>
+    <form id="guest-form">
+      <label for="guest-name">你的网名</label>
+      <input id="guest-name" maxlength="30" placeholder="例如：宇宙路过的薯条" required>
+      <label for="guest-message">想说的话</label>
+      <textarea id="guest-message" rows="3" maxlength="240" placeholder="在此留下神秘电波……" required></textarea>
+      <button class="btn" type="submit">发送电波 ↗</button>
+    </form>
+    <div class="hint">注意：当前版本把留言保存在访客自己的浏览器中，只有这台设备/这个浏览器能看到。若要让所有访客互相看到留言，需要再接入 Giscus 等评论服务。</div>
+    <h3>RECENT SIGNALS</h3>
+    <div id="comments"></div>
+  </div>
+</section>
+</main>
 
 <footer>
- <strong>🤡 精神状态艺术馆</strong>
- <p>© 2026 一个不太正常的可爱人类</p>
- <p>Made with 🫠 and a little bit of madness.</p>
- <p>本站作者精神状态随机刷新。</p>
+  <strong>CYBER HUMAN.EXE</strong><br>
+  MADE WITH 💖, WIFI & QUESTIONABLE LIFE CHOICES<br>
+  © 2026 — 一个正在学习制作个人网站的人类
 </footer>
 
-<div id="popup">
- <button onclick="closePopup()">×</button>
- <p id="popuptext">检测到一位陌生人正在围观！</p>
-</div>
+<div id="ghost" aria-hidden="true">👻</div>
+<div id="popup"><button onclick="document.getElementById('popup').style.display='none'">×</button><b>⚠ SYSTEM POP-UP</b><p id="popup-text">检测到一位陌生人正在围观！请保持可爱。</p></div>
 
 <script>
-const jokes=[
- "系统提示：检测到帅哥，正在加载……失败。",
- "今日目标：活着。完成情况：进行中。",
- "Error 404：脑子未找到。",
- "恭喜你浪费了宝贵的三秒钟。",
- "服务器正在思考人生，请稍后再试。",
- "我不是懒，我只是在节能模式。",
- "你的精神状态已超出系统承载范围。",
- "正在连接外星文明……对方拒绝接听。",
- "别看了，再看也不会中奖。",
- "恭喜获得：一无所有体验卡！"
-];
-function randomJoke(){
- document.getElementById("joke").textContent=
- "👉 "+jokes[Math.floor(Math.random()*jokes.length)];
-}
-const diary=[
- "今天的我依然没有成为亿万富翁，令人遗憾。",
- "我决定开始自律，但是从明天开始。",
- "电脑问我在干嘛，我说在研究人生。",
- "今天什么也没做，但我感觉自己很忙。",
- "世界很大，我想去看看，但外面好热。",
- "刚刚想到了一个绝妙的点子，然后忘了。"
-];
-function newDiary(){
- document.getElementById("newdiary").innerHTML=
- '<div class="diary"><small>刚刚生成 // 未经审核</small><p>'+
- diary[Math.floor(Math.random()*diary.length)]+'</p></div>';
-}
-function closePopup(){
- document.getElementById("popup").style.display="none";
-}
-setTimeout(()=>{
- document.getElementById("popup").style.display="block";
-},5000);
-document.addEventListener("click",e=>{
- if(e.target.tagName==="BUTTON")return;
- if(Math.random()>.8){
-  document.getElementById("popuptext").textContent=
-  jokes[Math.floor(Math.random()*jokes.length)];
-  document.getElementById("popup").style.display="block";
+const lines=["你的脑细胞刚刚出去旅游了。","恭喜解锁：赛博世界临时居民。","系统提示：今天也要闪闪发光。","宇宙正在加载，请不要拔掉网线。","你已进入精神状态未知区域。","404：人生说明书未找到。"];
+function randomLine(){document.getElementById('random-line').textContent="✦ "+lines[Math.floor(Math.random()*lines.length)];}
+setInterval(()=>{document.getElementById('speed').textContent=String(9000+Math.floor(Math.random()*999));},1700);
+setInterval(()=>{if(Math.random()>.55){document.getElementById('popup-text').textContent=lines[Math.floor(Math.random()*lines.length)];document.getElementById('popup').style.display='block';}},26000);
+setTimeout(()=>{document.getElementById('popup').style.display='block';},9000);
+
+// Mouse-follow ghost (disabled on touch devices).
+const ghost=document.getElementById('ghost');
+if(matchMedia('(pointer:fine)').matches){
+ document.addEventListener('mousemove',e=>{ghost.style.left=e.clientX+'px';ghost.style.top=e.clientY+'px';});
+}else{ghost.style.display='none';}
+document.addEventListener('click',e=>{
+ if(e.target.closest('button,a,input,textarea'))return;
+ for(let i=0;i<5;i++){
+  const s=document.createElement('span');s.className='spark';s.textContent=['✨','💖','⭐','🛸'][Math.floor(Math.random()*4)];
+  s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';s.style.setProperty('--dx',(Math.random()*100-50)+'px');document.body.appendChild(s);setTimeout(()=>s.remove(),750);
  }
 });
+
+// Tiny brain-cell click game.
+let score=0;const scoreEl=document.getElementById('score');
+const canvas=document.getElementById('gamecanvas'),ctx=canvas.getContext('2d');
+function drawGame(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ ctx.fillStyle='#1d1b39';ctx.fillRect(0,0,canvas.width,canvas.height);
+ for(let i=0;i<35;i++){ctx.fillStyle=i%2?'#514a83':'#35305d';ctx.fillRect((i*83)%560,(i*47)%220,3,3);}
+ ctx.font='48px sans-serif';ctx.fillText('🧠',70,105);ctx.font='30px sans-serif';ctx.fillText('✨',205,90);ctx.fillText('👾',390,145);
+ ctx.fillStyle='#c8ff45';ctx.font='bold 16px monospace';ctx.fillText('CLICK TO COLLECT YOUR BRAIN CELLS!',18,195);
+}
+drawGame();
+document.getElementById('collect').addEventListener('click',()=>{score++;scoreEl.textContent=score;document.getElementById('brain').textContent=(0.5+score).toFixed(1);drawGame();});
+document.getElementById('reset').addEventListener('click',()=>{score=0;scoreEl.textContent='0';document.getElementById('brain').textContent='0.5';drawGame();});
+
+// Local-only guestbook. This does not publish comments to other visitors.
+const form=document.getElementById('guest-form'),commentsEl=document.getElementById('comments');
+function loadComments(){
+ const arr=JSON.parse(localStorage.getItem('cyberGuestbook')||'[]');
+ commentsEl.innerHTML='';
+ if(!arr.length){commentsEl.innerHTML='<p class="hint">暂时没有电波。你可以成为第一个留言的人！</p>';return;}
+ arr.slice().reverse().forEach(item=>{
+  const div=document.createElement('div');div.className='comment';
+  const name=document.createElement('b');name.textContent=item.name+' ';
+  const msg=document.createElement('span');msg.textContent=item.message;
+  div.append(name,msg);commentsEl.appendChild(div);
+ });
+}
+form.addEventListener('submit',e=>{
+ e.preventDefault();
+ const name=document.getElementById('guest-name').value.trim();
+ const message=document.getElementById('guest-message').value.trim();
+ if(!name||!message)return;
+ const arr=JSON.parse(localStorage.getItem('cyberGuestbook')||'[]');
+ arr.push({name,message});localStorage.setItem('cyberGuestbook',JSON.stringify(arr.slice(-30)));
+ form.reset();loadComments();
+});
+loadComments();
 </script>
 </body>
 </html>
