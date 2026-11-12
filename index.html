@@ -33,7 +33,7 @@ h1 em{font-style:normal;color:var(--hot);text-shadow:3px 3px #fff,6px 6px var(--
 .btn:hover{transform:translate(4px,4px);box-shadow:1px 1px var(--ink)}
 .photo-frame{position:relative;width:min(100%,350px);justify-self:center;padding:12px 12px 43px;background:linear-gradient(145deg,#fff,#d9e7f7 55%,#fff);border:3px solid var(--ink);box-shadow:12px 12px 0 var(--pink),18px 18px 0 var(--ink);transform:rotate(4deg)}
 .photo-frame:before{content:"★ MY REAL HUMAN FORM ★";position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:Orbitron,sans-serif;font-size:12px;letter-spacing:1px}
-.photo-frame img{display:block;width:100%;height:390px;object-fit:cover;object-position:center 100%;border:2px solid var(--ink)}
+.photo-frame img{display:block;width:100%;height:390px;object-fit:cover;object-position:center 28%;border:2px solid var(--ink)}
 .sticker{position:absolute;font-size:48px;filter:drop-shadow(3px 3px #fff);animation:bob 2.5s ease-in-out infinite alternate}
 .s1{right:2%;top:40px}.s2{left:46%;top:440px;animation-delay:.5s}.s3{right:3%;bottom:40px;animation-delay:1s}
 @keyframes bob{to{transform:translateY(-18px) rotate(14deg)}}
@@ -57,7 +57,7 @@ h1 em{font-style:normal;color:var(--hot);text-shadow:3px 3px #fff,6px 6px var(--
 .gallery{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
 .gallery-card{background:#fff;padding:12px 12px 45px;border:2px solid var(--ink);box-shadow:8px 8px var(--ink);transform:rotate(-3deg);position:relative}
 .gallery-card:nth-child(2){transform:rotate(3deg);background:#f1eaff}
-.gallery-card img{width:100%;height:330px;object-fit:cover;display:block;border:1px solid #aaa}
+.gallery-card img{width:100%;height:380px;object-fit:contain;background:#f8f2ff;display:block;border:1px solid #aaa}
 .gallery-card p{position:absolute;bottom:7px;left:10px;right:10px;text-align:center;margin:0;font-size:18px}
 .player{display:grid;grid-template-columns:170px 1fr;gap:22px;align-items:center;background:linear-gradient(135deg,#e9faff,#ffd9ed);padding:22px;border:3px solid var(--ink);box-shadow:8px 8px var(--ink)}
 .album{width:100%;aspect-ratio:1;object-fit:cover;border:3px solid #fff;box-shadow:4px 4px var(--ink)}
@@ -84,11 +84,89 @@ footer strong{font:900 20px Orbitron,sans-serif;color:var(--pink)}
 #popup button{float:right;border:0;background:transparent;font-size:20px}
 .spark{position:fixed;pointer-events:none;z-index:100;animation:spark .7s ease-out forwards;font-size:22px}
 @keyframes spark{to{transform:translate(var(--dx),-65px) rotate(160deg) scale(.2);opacity:0}}
-@media(max-width:760px){nav{align-items:flex-start;flex-direction:column}.hero-grid,.gallery{grid-template-columns:1fr}.hero{padding-top:45px}.photo-frame{width:min(78%,310px);margin:20px auto 35px}.photo-frame img{height:350px}.s2{left:auto;right:10%;top:560px}.grid{grid-template-columns:1fr}.status-grid{grid-template-columns:1fr}.player{grid-template-columns:110px 1fr;gap:15px}.gallery-card img{height:290px}.lead{font-size:17px}}
+@media(max-width:760px){nav{align-items:flex-start;flex-direction:column}.hero-grid,.gallery{grid-template-columns:1fr}.hero{padding-top:45px}.photo-frame{width:min(78%,310px);margin:20px auto 35px}.photo-frame img{height:350px}.s2{left:auto;right:10%;top:560px}.grid{grid-template-columns:1fr}.status-grid{grid-template-columns:1fr}.player{grid-template-columns:110px 1fr;gap:15px}.gallery-card img{height:340px}.lead{font-size:17px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+
+/* === WEBCORE / INTERNET MAXIMALISM UPGRADE === */
+body{
+ background:
+   radial-gradient(circle at 8% 12%,#ff39a8 0 3px,transparent 4px),
+   radial-gradient(circle at 86% 18%,#baff35 0 5px,transparent 6px),
+   radial-gradient(circle at 20% 72%,#5cecff 0 4px,transparent 5px),
+   repeating-linear-gradient(135deg,rgba(255,255,255,.28) 0 2px,transparent 2px 13px),
+   linear-gradient(125deg,#ffb7e5 0%,#b8f5ff 32%,#e5c4ff 63%,#e5ff9e 100%);
+ background-attachment:fixed;
+}
+body:before{
+ opacity:.5;
+ background-image:
+  radial-gradient(#fff 1.5px,transparent 2px),
+  radial-gradient(#ff3d9b 1px,transparent 2px),
+  repeating-linear-gradient(45deg,transparent 0 18px,rgba(255,255,255,.25) 18px 20px);
+ background-size:31px 31px,47px 47px,100% 100%;
+}
+body:after{
+ content:"✦  INTERNET BABY  ✦  夢の中  ✦  WWW  ✦  ★  ONLINE  ★  ";
+ position:fixed;left:-5vw;bottom:9px;width:110vw;z-index:2;
+ pointer-events:none;white-space:nowrap;overflow:hidden;
+ color:#ff168f;font:900 12px Orbitron,sans-serif;letter-spacing:4px;
+ text-shadow:1px 1px white,2px 2px #141126;
+ transform:rotate(-1.5deg);opacity:.8;
+}
+nav{background:linear-gradient(90deg,#ffb7e5ed,#c8faffed,#e8ffb9ed);border-bottom:3px solid #171326}
+.brand{color:#ff168f;text-shadow:2px 2px #baff35,4px 4px white}
+.hero{isolation:isolate}
+.hero:before,.hero:after{position:absolute;z-index:-1;pointer-events:none;font-size:clamp(50px,9vw,110px);filter:drop-shadow(4px 5px white);animation:bob 3s ease-in-out infinite alternate}
+.hero:before{content:"🦋";left:-2%;top:28%;transform:rotate(-20deg)}
+.hero:after{content:"💿";right:0;bottom:4%;animation-delay:.7s}
+.kicker,.section-title,.pill,.card,.stat,.player,.commentbox,.gallery-card,.terminal{
+ border-width:3px;box-shadow:7px 7px 0 #171326,11px 11px 0 rgba(255,47,134,.55)
+}
+.kicker{background:linear-gradient(90deg,#d5ff62,#fff36d,#ff9ed2)}
+h1{filter:drop-shadow(2px 2px 0 #fff)}
+h1 em{color:#ff168f;text-shadow:2px 2px #c7ff3e,5px 5px white,8px 8px #59dfff}
+.photo-frame{background:linear-gradient(135deg,#fff,#ffb9e5,#bdf7ff);box-shadow:12px 12px 0 #baff35,18px 18px 0 #171326}
+.photo-frame:after{content:"♥ ★ ✦";position:absolute;right:-22px;top:-28px;background:#c8ff45;border:2px solid #171326;padding:8px 12px;transform:rotate(12deg);font-size:19px}
+.ticker{background:linear-gradient(90deg,#171326,#4b236a,#171326);color:#d7ff53}
+.card{border-radius:0}
+.card:nth-child(1){background:#fff4a8;transform:rotate(-1.5deg)}
+.card:nth-child(2){background:#baffdf;transform:rotate(1.8deg)}
+.card:nth-child(3){background:#ffc4e8;transform:rotate(-1.2deg)}
+.card:nth-child(4){background:#c9c4ff;transform:rotate(1.4deg)}
+.card:hover,.gallery-card:hover{transform:translateY(-7px) rotate(0deg) scale(1.025);transition:.2s}
+.section-title{background:linear-gradient(90deg,#baff35,#fff17d,#ff9dd5,#9beeff)}
+.gallery-card{background:linear-gradient(135deg,#fff,#dffaff)}
+.gallery-card:nth-child(2){background:linear-gradient(135deg,#fff,#ffd8ed)}
+.player{background:linear-gradient(135deg,#d6fbff,#ffcae9 48%,#e4ffb2)}
+.btn{background:linear-gradient(135deg,#ff2f91,#ff80c0);text-shadow:1px 1px #a00054}
+.btn.alt{background:linear-gradient(135deg,#8ef1ff,#c9ff68);text-shadow:none}
+.sticker{filter:drop-shadow(3px 3px white) drop-shadow(0 0 8px #ff42a0)}
+#ghost{filter:drop-shadow(2px 3px #ff4fa0) drop-shadow(0 0 8px #a4faff)}
+#popup{background:linear-gradient(135deg,#d8ff75,#ffb9e4);transform:rotate(1deg)}
+/* Decorative floating stickers */
+.webcore-sticker{position:fixed;z-index:1;pointer-events:none;font-size:clamp(22px,4vw,48px);filter:drop-shadow(2px 3px white);animation:stickerFloat 5s ease-in-out infinite alternate}
+.webcore-sticker.one{top:18%;left:1%}.webcore-sticker.two{top:48%;right:1%;animation-delay:1s}
+.webcore-sticker.three{bottom:16%;left:3%;animation-delay:2s}.webcore-sticker.four{top:70%;right:4%;animation-delay:.5s}
+@keyframes stickerFloat{to{translate:0 -22px;rotate:16deg}}
+@media(max-width:760px){body:after{font-size:9px}.webcore-sticker{opacity:.65}.hero:before{left:0;top:5%}.hero:after{right:0}}
+
 </style>
 </head>
 <body>
+
+<div id="enter-screen" style="position:fixed;inset:0;z-index:2000;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 20% 20%,#ff9bd4,transparent 35%),radial-gradient(circle at 80% 75%,#baff35,transparent 30%),linear-gradient(135deg,#8ceeff,#e9b9ff 55%,#ffcae6);">
+ <div style="max-width:520px;width:100%;text-align:center;background:#fff8;border:4px solid #171326;padding:28px;box-shadow:12px 12px #171326,18px 18px #ff3f9b;backdrop-filter:blur(8px)">
+  <div style="font:900 13px Orbitron,sans-serif;letter-spacing:3px;color:#f0188d">WELCOME TO THE INTERNET VOID</div>
+  <div style="font-size:64px;margin:12px">🦋 💿 👽</div>
+  <h1 style="font-size:clamp(34px,8vw,58px);margin:8px 0;text-shadow:3px 3px #baff35">ENTER MY<br>CHAOTIC WORLD</h1>
+  <p style="font-size:18px">点击进入，启动赛博精神状态。</p>
+  <button id="enter-world" class="btn" style="font-size:20px;padding:15px 25px">✦ ENTER + PLAY IU ✦</button>
+  <p style="font-size:12px;margin-top:14px">IU — GOOD DAY · YouTube 官方 MV · 需要点击后播放</p>
+ </div>
+</div>
+<div class="webcore-sticker one">🦋</div><div class="webcore-sticker two">💿</div>
+<div class="webcore-sticker three">✧</div><div class="webcore-sticker four">👾</div>
+
 <div class="topline"></div>
 <nav>
   <div class="brand">✦ CYBER HUMAN.EXE ✦</div>
@@ -271,6 +349,36 @@ form.addEventListener('submit',e=>{
  form.reset();loadComments();
 });
 loadComments();
+
+// One-tap welcome screen: user gesture starts the official YouTube MV.
+(function(){
+ const enter=document.getElementById('enter-world');
+ const screen=document.getElementById('enter-screen');
+ let player=null,apiReady=false,asked=false;
+ const iframe=document.querySelector('.video-wrap iframe');
+ if(!iframe)return;
+ const videoId='jeqdYqsrsA0';
+ window.onYouTubeIframeAPIReady=function(){
+   apiReady=true;
+   player=new YT.Player(iframe,{events:{onReady:function(){if(asked){player.playVideo();}}}});
+ };
+ const api=document.createElement('script');
+ api.src='https://www.youtube.com/iframe_api';
+ document.head.appendChild(api);
+ enter.addEventListener('click',function(){
+   asked=true;
+   screen.style.transition='opacity .45s ease';
+   screen.style.opacity='0';
+   setTimeout(()=>screen.remove(),480);
+   if(player&&apiReady){player.playVideo();}
+   else{
+     // Set autoplay only after the explicit click; YouTube may still enforce its own policies.
+     const src='https://www.youtube-nocookie.com/embed/'+videoId+'?autoplay=1&enablejsapi=1&rel=0';
+     iframe.src=src;
+   }
+ });
+})();
+
 </script>
 </body>
 </html>
