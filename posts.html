@@ -1,6 +1,104 @@
-{% raw %}{% for post in site.posts %}
-  <h2>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-  </h2>
-  <p>{{ post.date | date: "%Y-%m-%d" }}</p>
-{% endfor %}{% endraw %}
+
+---
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MY POSTS ✦ CYBER HUMAN.EXE</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 35px 20px;
+      font-family: "Microsoft YaHei", sans-serif;
+      color: #171326;
+      background: linear-gradient(135deg,#ffb7e5,#b8f5ff,#e5c4ff,#e5ff9e);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 850px; margin: auto; }
+    .back {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #c8ff45;
+      border: 2px solid #171326;
+      box-shadow: 4px 4px #171326;
+      color: #171326;
+      text-decoration: none;
+    }
+    h1 {
+      font-size: clamp(38px,8vw,65px);
+      color: #ff168f;
+      text-shadow: 3px 3px white,6px 6px #171326;
+      margin: 45px 0 10px;
+    }
+    .subtitle { font-size: 17px; margin-bottom: 35px; }
+    .post {
+      background: #fff;
+      border: 3px solid #171326;
+      box-shadow: 7px 7px #171326;
+      padding: 23px;
+      margin-bottom: 25px;
+    }
+    .post h2 { margin: 0 0 12px; }
+    .post h2 a {
+      color: #ff168f;
+      text-decoration: none;
+    }
+    .date { color: #756a83; font-size: 13px; }
+    .excerpt { line-height: 1.8; }
+    .read {
+      display: inline-block;
+      background: #b8f5ff;
+      border: 2px solid #171326;
+      padding: 8px 13px;
+      margin-top: 10px;
+      color: #171326;
+      text-decoration: none;
+    }
+    .empty {
+      background: white;
+      border: 3px solid #171326;
+      padding: 25px;
+    }
+    footer { text-align: center; margin-top: 55px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">← BACK TO MY WORLD</a>
+
+    <h1>MY POSTS ✦</h1>
+    <p class="subtitle">
+      欢迎来到我的文字宇宙！这里记录我的生活、想法和奇奇怪怪的日常。
+    </p>
+
+    {% for post in site.posts %}
+    <article class="post">
+      <h2>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <div class="date">
+        ✦ {{ post.date | date: "%Y-%m-%d" }}
+      </div>
+      <div class="excerpt">
+        {{ post.excerpt }}
+      </div>
+      <a class="read" href="{{ post.url | relative_url }}">
+        READ MORE ↗
+      </a>
+    </article>
+    {% else %}
+    <div class="empty">
+      <h2>📡 暂时没有文章</h2>
+      <p>请稍后再来看看！</p>
+    </div>
+    {% endfor %}
+
+    <footer>
+      ✦ MADE WITH LOVE & WIFI ✦
+    </footer>
+  </div>
+</body>
+</html>
