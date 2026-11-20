@@ -346,29 +346,6 @@ drawGame();
 document.getElementById('collect').addEventListener('click',()=>{score++;scoreEl.textContent=score;document.getElementById('brain').textContent=(0.5+score).toFixed(1);drawGame();});
 document.getElementById('reset').addEventListener('click',()=>{score=0;scoreEl.textContent='0';document.getElementById('brain').textContent='0.5';drawGame();});
 
-// Local-only guestbook. This does not publish comments to other visitors.
-const form=document.getElementById('guest-form'),commentsEl=document.getElementById('comments');
-function loadComments(){
- const arr=JSON.parse(localStorage.getItem('cyberGuestbook')||'[]');
- commentsEl.innerHTML='';
- if(!arr.length){commentsEl.innerHTML='<p class="hint">暂时没有电波。你可以成为第一个留言的人！</p>';return;}
- arr.slice().reverse().forEach(item=>{
-  const div=document.createElement('div');div.className='comment';
-  const name=document.createElement('b');name.textContent=item.name+' ';
-  const msg=document.createElement('span');msg.textContent=item.message;
-  div.append(name,msg);commentsEl.appendChild(div);
- });
-}
-form.addEventListener('submit',e=>{
- e.preventDefault();
- const name=document.getElementById('guest-name').value.trim();
- const message=document.getElementById('guest-message').value.trim();
- if(!name||!message)return;
- const arr=JSON.parse(localStorage.getItem('cyberGuestbook')||'[]');
- arr.push({name,message});localStorage.setItem('cyberGuestbook',JSON.stringify(arr.slice(-30)));
- form.reset();loadComments();
-});
-loadComments();
 
 // One-tap welcome screen: user gesture starts the official YouTube MV.
 (function(){
