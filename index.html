@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -268,23 +269,39 @@ h1 em{color:#ff168f;text-shadow:2px 2px #c7ff3e,5px 5px white,8px 8px #59dfff}
   </div>
 </section>
 
+
 <section class="section" id="guestbook">
   <h2 class="section-title">📮 INTERNET GUESTBOOK</h2>
+
   <div class="commentbox">
     <h3>留下你的互联网足迹！</h3>
-    <form id="guest-form">
-      <label for="guest-name">你的网名</label>
-      <input id="guest-name" maxlength="30" placeholder="例如：宇宙路过的薯条" required>
-      <label for="guest-message">想说的话</label>
-      <textarea id="guest-message" rows="3" maxlength="240" placeholder="在此留下神秘电波……" required></textarea>
-      <button class="btn" type="submit">发送电波 ↗</button>
-    </form>
-    <div class="hint">注意：当前版本把留言保存在访客自己的浏览器中，只有这台设备/这个浏览器能看到。若要让所有访客互相看到留言，需要再接入 Giscus 等评论服务。</div>
-    <h3>RECENT SIGNALS</h3>
-    <div id="comments"></div>
+    <p class="hint">
+      ✨ 欢迎来到蔡叽的公共留言墙！
+      你的留言将会被所有访客看见。
+    </p>
+
+    <div class="giscus"></div>
+
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="Cjh-star211/Cjh-star211.github.io"
+      data-repo-id="R_kgDOVsB5Xw"
+      data-category="General"
+      data-category-id="DIC_kwDOVsB5x84DLklt"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
   </div>
 </section>
-</main>
+
 
 <footer>
   <strong>CYBER HUMAN.EXE</strong><br>
