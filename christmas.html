@@ -55,117 +55,212 @@
   <div class="subtitle">MY MAGICAL LITTLE UNIVERSE</div>
   <div id="scene"></div>
 
-  <script type="module">
-    import * as THREE from
-      "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+import * as THREE from
+  "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
 
-    // 创建 3D 场景
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color("#090414");
+// 1. 创建场景
+const scene = new THREE.Scene();
+scene.background = new THREE.Color("#090414");
 
-    // 创建摄像机
-    const camera = new THREE.PerspectiveCamera(
-      60,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+// 2. 创建摄像机
+const camera = new THREE.PerspectiveCamera(
+  60,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+camera.position.set(0, 1, 12);
 
-    camera.position.set(0, 2, 12);
+// 3. 创建渲染器
+const renderer = new THREE.WebGLRenderer({
+  antialias: true
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // 创建渲染器
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true
-    });
+document.getElementById("scene").appendChild(
+  renderer.domElement
+);
 
-    renderer.setSize(
-      window.innerWidth,
-      window.innerHeight
-    );
+// 4. 添加灯光
+scene.add(new THREE.AmbientLight(0xffffff, 1.5));
 
-    renderer.setPixelRatio(
-      Math.min(window.devicePixelRatio, 2)
-    );
+const light = new THREE.PointLight("#ffb8e8", 50);
+light.position.set(0, 4, 5);
+scene.add(light);
 
-    document.getElementById("scene").appendChild(
-      renderer.domElement
-    );
+// 5. 创建圣诞树容器
+const treeGroup = new THREE.Group();
+scene.add(treeGroup);
 
-    // 添加环境光
-    const light = new THREE.AmbientLight(
-      0xffffff,
-      1.5
-    );
+// 6. 创建圣诞树粒子
+const particleCount = 5000;
+const positions = new Float32Array(particleCount * 3);
+const colors = new Float32Array(particleCount * 3);
 
-    scene.add(light);
+const colorChoices = [
+  new THREE.Color("#20ff9b"),
+  new THREE.Color("#ffd166"),
+  new THREE.Color("#ff72d2"),
+  new THREE.Color("#bd8cff"),
+  new THREE.Color("#ffffff")
+];
 
-    // 圣诞树的主体
-    const treeGroup = new THREE.Group();
-    scene.add(treeGroup);
+for (let i = 0; i < particleCount; i++) {
+  const t = Math.random();
 
-    const treeGeometry = new THREE.ConeGeometry(
-      3,
-      7,
-      64
-    );
+  const y = -3.5 + t * 7;
+  const maxRadius = 2.9 * (1 - t);
+  const radius = Math.sqrt(Math.random()) * maxRadius;
+  const angle = Math.random() * Math.PI * 2;
 
-    const treeMaterial = new THREE.MeshStandardMaterial({
-      color: "#20c77a",
-      roughness: 0.7,
-      metalness: 0.2
-    });
+  positions[i * 3] = Math.cos(angle) * radius;
+  positions[i * 3 + 1] = y;
+  positions[i * 3 + 2] = Math.sin(angle) * radius;
 
-    const tree = new THREE.Mesh(
-      treeGeometry,
-      treeMaterial
-    );
+  const color = colorChoices[
+    Math.floor(Math.random() * colorChoices.length)
+  ];
 
-    tree.position.y = 0;
-    treeGroup.add(tree);
+  colors[i * 3] = color.r;
+  colors[i * 3 + 1] = color.g;
+  colors[i * 3 + 2] = color.b;
+}
 
-    // 地面
-    const groundGeometry = new THREE.CircleGeometry(
-      4,
-      64
-    );
+const treeGeometry = new THREE.BufferGeometry();
 
-    const groundMaterial = new THREE.MeshBasicMaterial({
-      color: "#26113b"
-    });
+treeGeometry.setAttribute(
+  "position",
+  new THREE.BufferAttribute(positions, 3)
+);
 
-    const ground = new THREE.Mesh(
-      groundGeometry,
-      groundMaterial
-    );
+treeGeometry.setAttribute(
+  "color",
+  new THREE.BufferAttribute(colors, 3)
+);
 
-    ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -3.6;
-    scene.add(ground);
+const treeMaterial = new THREE.PointsMaterial({
+  size: 0.065,
+  vertexColors: true,
+  transparent: true,
+  opacity: 0.95,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false
+});
 
-    // 动画
-    function animate() {
-      requestAnimationFrame(animate);
+const particles = new THREE.Points(
+  treeGeometry,
+  treeMaterial
+);
 
-      treeGroup.rotation.y += 0.005;
+treeGroup.add(particles);
 
-      renderer.render(scene, camera);
+// 7. 制作树顶的星星
+const starShape = new THREE.Shape();
+
+for (let i = 0; i < 10; i++) {
+  const angle = (i / 10) * Math.PI * 2 - Math.PI / 2;
+  const radius = i % 2 === 0 ? 0.45 : 0.19;
+
+  const x = Math.cos(angle) * radius;
+  const y = Math.sin(angle) * radius;
+
+  if (i === 0) {
+    starShape.moveTo(x, y);
+  } else {
+    starShape.lineTo(x, y);
+  }
+}
+
+starShape.closePath();
+
+const star = new THREE.Mesh(
+  new THREE.ShapeGeometry(starShape),
+  new THREE.MeshBasicMaterial({
+    color: "#ffe89a",
+    side: THREE.DoubleSide
+  })
+);
+
+star.position.y = 3.9;
+treeGroup.add(star);
+
+// 星星的光晕
+const starLight = new THREE.PointLight("#ffd76b", 15);
+starLight.position.set(0, 3.9, 0);
+treeGroup.add(starLight);
+
+// 8. 创建飘落的雪花
+const snowCount = 500;
+const snowPositions = new Float32Array(snowCount * 3);
+
+for (let i = 0; i < snowCount; i++) {
+  snowPositions[i * 3] = (Math.random() - 0.5) * 15;
+  snowPositions[i * 3 + 1] = Math.random() * 12 - 5;
+  snowPositions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+}
+
+const snowGeometry = new THREE.BufferGeometry();
+
+snowGeometry.setAttribute(
+  "position",
+  new THREE.BufferAttribute(snowPositions, 3)
+);
+
+const snowMaterial = new THREE.PointsMaterial({
+  color: "#ffffff",
+  size: 0.045,
+  transparent: true,
+  opacity: 0.8
+});
+
+const snow = new THREE.Points(
+  snowGeometry,
+  snowMaterial
+);
+
+scene.add(snow);
+
+// 9. 动画
+function animate() {
+  requestAnimationFrame(animate);
+
+  // 圣诞树缓慢旋转
+  treeGroup.rotation.y += 0.003;
+
+  // 星星轻轻闪烁
+  const time = Date.now() * 0.003;
+  star.scale.setScalar(1 + Math.sin(time) * 0.08);
+
+  // 雪花向下飘落
+  const snowArray = snowGeometry.attributes.position.array;
+
+  for (let i = 0; i < snowCount; i++) {
+    snowArray[i * 3 + 1] -= 0.025;
+
+    if (snowArray[i * 3 + 1] < -5) {
+      snowArray[i * 3 + 1] = 7;
     }
+  }
 
-    animate();
+  snowGeometry.attributes.position.needsUpdate = true;
 
-    // 适应浏览器窗口
-    window.addEventListener("resize", () => {
-      camera.aspect =
-        window.innerWidth / window.innerHeight;
+  renderer.render(scene, camera);
+}
 
-      camera.updateProjectionMatrix();
+animate();
 
-      renderer.setSize(
-        window.innerWidth,
-        window.innerHeight
-      );
-    });
-  </script>
+// 10. 适应浏览器窗口大小
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+  );
+});
+
 
 </body>
 </html>
