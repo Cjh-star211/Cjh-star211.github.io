@@ -243,12 +243,53 @@
 
     scene.add(snow);
 
+// 鼠标控制圣诞树旋转
+let isDragging = false;
+let previousMouseX = 0;
+let previousMouseY = 0;
+
+renderer.domElement.addEventListener("pointerdown", (event) => {
+  isDragging = true;
+  previousMouseX = event.clientX;
+  previousMouseY = event.clientY;
+});
+
+window.addEventListener("pointerup", () => {
+  isDragging = false;
+});
+
+window.addEventListener("pointermove", (event) => {
+  if (!isDragging) return;
+
+  const deltaX = event.clientX - previousMouseX;
+  const deltaY = event.clientY - previousMouseY;
+
+  treeGroup.rotation.y += deltaX * 0.008;
+  treeGroup.rotation.x += deltaY * 0.005;
+
+  previousMouseX = event.clientX;
+  previousMouseY = event.clientY;
+});
+
+// 鼠标滚轮缩放
+renderer.domElement.addEventListener("wheel", (event) => {
+  event.preventDefault();
+
+  camera.position.z += event.deltaY * 0.01;
+
+  camera.position.z = THREE.MathUtils.clamp(
+    camera.position.z,
+    7,
+    20
+  );
+}, { passive: false });
+
     // 9. 动画
     function animate() {
       requestAnimationFrame(animate);
 
       // 圣诞树缓慢旋转
-      treeGroup.rotation.y += 0.003;
+      if (!isDragging) {   treeGroup.rotation.y += 0.003; }
 
       // 星星轻轻闪烁
       const time = Date.now() * 0.003;
